@@ -16,7 +16,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             height: 100vh;
@@ -25,7 +27,7 @@
             align-items: center;
             justify-content: center;
             background:
-                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
                 url('hehe.jpg');
             background-size: cover;
             background-position: center;
@@ -37,12 +39,17 @@
         h1 {
             font-size: 3rem;
             color: #FFF8F2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        h2 { color: #FFF8F2; font-weight: 500; }
+        h2 {
+            color: #FFF8F2;
+            font-weight: 500;
+        }
 
-        .buttons { margin-top: 35px; }
+        .buttons {
+            margin-top: 35px;
+        }
 
         button {
             font-size: 1.2rem;
@@ -60,7 +67,9 @@
             font-weight: 600;
         }
 
-        #yes:hover { transform: scale(1.08); }
+        #yes:hover {
+            transform: scale(1.08);
+        }
 
         #no {
             background: #FFF8F2;
@@ -87,14 +96,14 @@
         #reason-box {
             position: fixed;
             padding: 15px 22px;
-            background: rgba(255,248,242,0.95);
+            background: rgba(255, 248, 242, 0.95);
             color: #8B5E3C;
             border-radius: 15px;
             border: 2px solid #F2C94C;
             display: none;
             max-width: 260px;
             z-index: 10;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
 
         /* YES CARD */
@@ -106,7 +115,7 @@
         }
 
         .yes-card {
-            background: rgba(0,0,0,0.45);
+            background: rgba(0, 0, 0, 0.45);
             padding: 45px;
             border-radius: 28px;
             max-width: 760px;
@@ -138,6 +147,7 @@
                 transform: translateY(40px) scale(0.8);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0) scale(1);
                 opacity: 1;
@@ -160,31 +170,38 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div id="main">
-    <h1>
-        Will you be my Valentine,<br>
-        <span style="color:#F2C94C;">Shireen</span>? 💛
-    </h1>
+    <div id="main">
+        <h1>
+            Will you be my Valentine,<br>
+            <span style="color:#F2C94C;">Shireen</span>? 💛
+        </h1>
 
-    <div class="buttons">
-        <button id="yes" onclick="yesClicked()">Yes 💖</button>
-        <button id="no" onclick="noClicked()">No 😢</button>
+        <div class="buttons">
+            <button id="yes" onclick="yesClicked()">Yes 💖</button>
+            <button id="no" onclick="noClicked()">No 😢</button>
+        </div>
     </div>
-</div>
 
-<div id="reason-box"></div>
+    <div id="reason-box"></div>
 
-<script>
-function yesClicked() {
-    document.body.innerHTML = `
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = `
         <div class="yes-wrapper">
             <div class="yes-card">
                 <h1>Yaaay!!! 💕💐</h1>
@@ -208,76 +225,69 @@ function yesClicked() {
         </div>
     `;
 
-    startPetals();
-}
+            startPetals();
+        }
 
-function startPetals() {
-    for (let i = 0; i < 22; i++) {
-        const petal = document.createElement("div");
-        petal.className = "petal";
-        petal.innerHTML = "🌸";
-        petal.style.left = Math.random() * 100 + "vw";
-        petal.style.animationDuration = (4 + Math.random() * 3) + "s";
-        document.body.appendChild(petal);
-        setTimeout(() => petal.remove(), 7000);
-    }
-}
+        function startPetals() {
+            for (let i = 0; i < 22; i++) {
+                const petal = document.createElement("div");
+                petal.className = "petal";
+                petal.innerHTML = "🌸";
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.animationDuration = (4 + Math.random() * 3) + "s";
+                document.body.appendChild(petal);
+                setTimeout(() => petal.remove(), 7000);
+            }
+        }
 
-const reasons = [
-    "Please say yes 🥺",
-    "I made this whole page just for you 💛",
-    "You make everything feel nicer 🌼",
-    "Being your Valentine would make me very happy 💖",
-    "This comes with unlimited hugs 🤗",
-    "You already know the answer 😌"
-];
+        const reasons = ["Please say yes 🥺 I’ve been thinking about this all day", "I made this whole page just for you 💛", "You have the prettiest smile 🌼", "Being your Valentine would make my heart so happy 💖", "I promise lots of laughs and sweet moments 😊", "You already know the answer is yes 😌", "I can’t imagine Valentine’s Day without you 💘", "You make even simple moments special ✨", "I’d really love to spend this Valentine’s with you 🌸", "You’re someone very special to me 💞", "Just one yes and my day becomes perfect 💛", "I’d cherish every moment as your Valentine 🌼", "You make my heart feel calm and excited at the same time 🥰", "I was smiling the whole time making this 🥹", "Life feels nicer with you in it 💖", "You deserve all the love today and always 🌷", "I promise to be a good Valentine 😄", "You already look amazing saying yes 😉", "I think the universe would approve this match ✨", "You make ordinary days feel special 💫", "Please don’t press no… my heart can’t take it 😢", "I’d love to create sweet memories together 💕", "Every reason leads back to you 💛", "This question comes with unlimited hugs 🤗", "I was hoping you’d see this and smile 😊", "You make my world a little brighter 🌞", "Just imagine how cute we’d be 🥰", "You’re my favorite notification 💌", "I’d happily choose you again and again 💖", "This is me asking with my whole heart 💛", "You make things feel warm and happy 🌼", "I’d love to call you my Valentine 💘", "Some things just feel right… like this 💫", "I’m really glad you’re here reading this 🥹", "One yes = infinite smiles 😊", "I promise today will be extra sweet 💕", "You make me feel lucky 💛", "I hope this made you smile at least once 🌸"];
+        let lastIndex = -1;
 
-let lastIndex = -1;
+        function getRandomReason() {
+            let i;
+            do {
+                i = Math.floor(Math.random() * reasons.length);
+            } while (i === lastIndex);
+            lastIndex = i;
+            return reasons[i];
+        }
 
-function getRandomReason() {
-    let i;
-    do {
-        i = Math.floor(Math.random() * reasons.length);
-    } while (i === lastIndex);
-    lastIndex = i;
-    return reasons[i];
-}
+        function noClicked() {
+            const box = document.getElementById("reason-box");
 
-function noClicked() {
-    const box = document.getElementById("reason-box");
+            const padding = 20;
+            const boxWidth = 260;
+            const boxHeight = 90;
 
-    const padding = 20;
-    const boxWidth = 260;
-    const boxHeight = 90;
+            let x = Math.random() * (window.innerWidth - boxWidth - padding);
+            let y = Math.random() * (window.innerHeight - boxHeight - padding);
 
-    let x = Math.random() * (window.innerWidth - boxWidth - padding);
-    let y = Math.random() * (window.innerHeight - boxHeight - padding);
+            x = Math.max(padding, x);
+            y = Math.max(padding, y);
 
-    x = Math.max(padding, x);
-    y = Math.max(padding, y);
+            box.innerText = getRandomReason();
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+            box.style.display = "block";
+        }
 
-    box.innerText = getRandomReason();
-    box.style.left = x + "px";
-    box.style.top = y + "px";
-    box.style.display = "block";
-}
+        function createHeart() {
+            const h = document.createElement("div");
+            h.className = "heart";
+            h.innerHTML = "💖";
+            h.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 6000);
+        }
+        setInterval(createHeart, 500);
+    </script>
 
-function createHeart() {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "💖";
-    h.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
-}
-setInterval(createHeart, 500);
-</script>
-
-<script>
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-}
-</script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 
 </body>
+
 </html>
