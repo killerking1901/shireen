@@ -26,9 +26,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             background:
                 linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
                 url('hehe.jpg');
+
             background-size: cover;
             background-position: center;
             font-family: 'Segoe UI', sans-serif;
@@ -40,6 +42,11 @@
             font-size: 3rem;
             color: #FFF8F2;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #FFF8F2;
+            font-weight: 500;
         }
 
         .buttons {
@@ -99,12 +106,46 @@
             max-width: 260px;
             z-index: 10;
         }
+
+        /* YES SCREEN CARD */
+        .yes-card {
+            background: rgba(0, 0, 0, 0.45);
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 750px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .shayari {
+            font-size: 1.35rem;
+            margin-top: 30px;
+            line-height: 1.7;
+            color: #FFF8F2;
+            font-style: italic;
+        }
+
+        .note {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div>
+    <div id="main-content">
         <h1>
             Will you be my Valentine,<br>
             <span style="color:#F2C94C;">Shireen</span>? 💛
@@ -121,17 +162,26 @@
     <script>
         function yesClicked() {
             document.body.innerHTML = `
-            <div style="color:#FFF8F2;padding:40px">
-                <h1>Yaaay!!! 💕💐</h1>
-                <h2>You just made me the happiest person ❤️</h2>
-                <p style="font-size:1.3rem;margin-top:20px;">
-                    Dil ne tumse jo baat chhupa rakhi thi,<br>
-Aaj woh mohabbat ban kar saamne aa gayi.<br>
-Tumhara haan kehna bas ek lafz nahi,<br>
-Meri poori zindagi ki kahani ban gayi.<br> (Sorry ye khud nhi likhe hai chape hai late ho gya tha :)) 💛
-                </p>
-                <h2>I love you endlessly 😘</h2>
-            </div>`;
+                <div class="yes-card">
+                    <h1>Yaaay!!! 💕💐</h1>
+                    <h2>You just made me the happiest person ❤️</h2>
+
+                    <div class="shayari">
+                        Dil ne tumse jo baat chhupa rakhi thi,<br>
+                        Aaj woh mohabbat ban kar saamne aa gayi.<br>
+                        Tumhara haan kehna bas ek lafz nahi,<br>
+                        Meri poori zindagi ki kahani ban gayi.
+                    </div>
+
+                    <div class="note">
+                        (Sorry ye khud nahi likhi 😅 late ho gaya tha)
+                    </div>
+
+                    <h2 style="margin-top:35px;">
+                        I love you endlessly 😘
+                    </h2>
+                </div>
+            `;
         }
 
         const reasons = [
@@ -185,7 +235,6 @@ Meri poori zindagi ki kahani ban gayi.<br> (Sorry ye khud nhi likhe hai chape ha
             do {
                 index = Math.floor(Math.random() * reasons.length);
             } while (index === lastIndex);
-
             lastIndex = index;
             return reasons[index];
         }
@@ -214,6 +263,7 @@ Meri poori zindagi ki kahani ban gayi.<br> (Sorry ye khud nhi likhe hai chape ha
             document.body.appendChild(h);
             setTimeout(() => h.remove(), 6000);
         }
+
         setInterval(createHeart, 500);
     </script>
 
@@ -225,5 +275,4 @@ Meri poori zindagi ki kahani ban gayi.<br> (Sorry ye khud nhi likhe hai chape ha
     </script>
 
 </body>
-
 </html>
