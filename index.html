@@ -42,7 +42,14 @@
 
         h2 { color: #FFF8F2; font-weight: 500; }
 
-        .buttons { margin-top: 35px; }
+        /* BUTTON ROW */
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
 
         button {
             font-size: 1.2rem;
@@ -63,11 +70,15 @@
 
         /* NO + BOX WRAPPER */
         .no-wrapper {
-            position: fixed;
+            position: relative; /* inline with YES initially */
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+        }
+
+        .no-wrapper.floating {
+            position: fixed; /* becomes movable after click */
         }
 
         #no {
@@ -218,6 +229,7 @@ function noClicked() {
     const wrapper = document.getElementById("no-wrapper");
     const box = document.getElementById("reason-box");
 
+    wrapper.classList.add("floating");
     box.innerText = getRandomReason();
     box.style.display = "block";
 
