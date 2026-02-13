@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Be My Valentine 💖</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('hehe.jpg');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #no {
+            background-color: #fff;
+            color: #ff4d6d;
+            position: absolute;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 24px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        #reason-box {
+            position: absolute;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff4d6d;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-width: 260px;
+            animation: popIn 0.4s ease;
+            z-index: 10;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1>
+            Will you be my Valentine,<br>
+            <span style="color:#ff4d6d;">Shireen</span>? 💘
+        </h1>
+        <div class="buttons">
+            <button id="yes" onclick="yesClicked()">Yes 💖</button>
+            <button id="no" onclick="noClicked()">No 😢</button>
+        </div>
+    </div>
+    <div id="reason-box"></div>
+
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = `
+        <h1 style="color:white;">
+          Yaaay!!! 💕💐<br/>
+          I love you ❤️
+        </h1>
+      `;
+        }
+
+        function moveNo() {
+            const button = document.getElementById("no");
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+    </script>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = `
+      <div style="
+        color: white;
+        text-align: center;
+        padding: 40px;
+      ">
+        <h1>Yaaay!!! 💕💐</h1>
+        <h2>You just made me the happiest person ❤️</h2>
+        <p style="font-size: 1.3rem; margin-top: 20px;">
+          Every moment with you feels special, and I can’t wait to make
+          many more beautiful memories together. 💖
+        </p>
+        <h2 style="margin-top: 30px;">I love you endlessly 😘</h2>
+      </div>
+    `;
+        }
+    </script>
+    <script>
+        const reasons = [
+            "Please say yes 🥺 I’d really love to be your Valentine",
+            "I promise I’ll try my best to make you smile every day 😊💗",
+            "It would mean a lot to me if you said yes 💕",
+            "I made this little website just for you 🥹💖",
+            "Being your Valentine would make me very very happy 🌸",
+            "I think we’d make a really cute Valentine pair 🥰",
+            "I’ve been looking forward to asking you this 💘",
+            "Saying yes would make today extra special ✨",
+            "I’d love to spend Valentine’s Day with you 💞",
+            "Please choose yes… it would make my heart smile 💖"
+        ];
+
+        function noClicked() {
+            const noBtn = document.getElementById("no");
+            const reasonBox = document.getElementById("reason-box");
+
+            // Generate random position
+            const x = Math.random() * (window.innerWidth - 300);
+            const y = Math.random() * (window.innerHeight - 200);
+
+            // Move NO button
+            noBtn.style.position = "absolute";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+
+            // Pick random reason
+            const randomReason = reasons[Math.floor(Math.random() * reasons.length)];
+            reasonBox.innerText = randomReason;
+
+            // Move reason box near NO button
+            reasonBox.style.left = (x + 10) + "px";
+            reasonBox.style.top = (y - 70) + "px";
+
+            reasonBox.style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
